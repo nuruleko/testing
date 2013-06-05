@@ -10,8 +10,11 @@ import javax.faces.bean.ViewScoped;
  */
 @ManagedBean
 @ViewScoped
-public class CarForm {
+public class CarForm extends BaseForm {
 
-	
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 }

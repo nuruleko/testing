@@ -2,19 +2,22 @@
 
 package com.ptsb.tutorial.tutorialspringhibernate.web.form;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import java.io.Serializable;
+
+import javax.annotation.PostConstruct;
 
 /**
  * @author Nicholas
  */
-@ManagedBean
-@ViewScoped
-public class CarListForm extends BaseForm {
+public abstract class BaseForm implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	@PostConstruct
+	public void init() {
+	}
 
 }
