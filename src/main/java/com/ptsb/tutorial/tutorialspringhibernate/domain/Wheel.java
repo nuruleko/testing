@@ -2,6 +2,8 @@
 
 package com.ptsb.tutorial.tutorialspringhibernate.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "WHEEL")
-public class Wheel extends BaseEntity {
+public class Wheel extends BaseEntity implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HB_SEQ_WHEEL")
@@ -57,5 +59,14 @@ public class Wheel extends BaseEntity {
 	public void setSequence(Integer sequence) {
 		this.sequence = sequence;
 	}
+
+	public Car getCar() {
+		return car;
+	}
+
+	public void setCar(Car car) {
+		this.car = car;
+	}
+	
 
 }

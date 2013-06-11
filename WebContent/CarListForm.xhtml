@@ -13,8 +13,86 @@
 
 <h:body>
 
-	<h:form id="mainForm">
-
+	<h:form id="listForm">
+	
+		<p:confirmDialog id="deleteModalDlg" message="Are you sure to proceed?" header="Delete Car Info" severity="alert" widgetVar="deleteDlg" modal="true">
+            <p:commandButton id="confirm" value="Yes" update="tableResult" oncomplete="deleteDlg.hide()" actionListener="#{carListBean.delete}" />
+            <p:commandButton id="decline" value="No" onclick="deleteDlg.hide()" type="button" />
+        </p:confirmDialog>
+        
+		<p:panel header="Search Criteria" id="criteriaPanel">
+			<p:panelGrid columns="2" header="Car Info" id="panelGridCar" >
+				<h:outputLabel for='owner' value='Owner:' />
+			    <p:inputText id='owner' value='#{carListBean.carSearch.owner}'/>
+			    
+				<h:outputLabel for='model' value='Model:' />
+			    <p:inputText id='model' value='#{carListBean.carSearch.model}'/>
+			     
+			    <h:outputText value="Manufacturer: " />
+		        <p:selectOneListbox value="#{carListBean.carSearch.manufacturer}" id="manufacturer">
+		            <f:selectItems value="#{carListBean.manufacturerList}" />
+		        </p:selectOneListbox>
+		        
+			    <h:outputLabel for='description' value='Description:' />
+			    <p:inputText id="description" value='#{carListBean.carSearch.description}'/>
+			    
+			    <h:outputText value="Color: " />
+		        <p:selectOneListbox id="color" value="#{carListBean.carSearch.color}">
+		            <f:selectItems value="#{carListBean.colorList}" />
+		        </p:selectOneListbox>
+		        
+		        <h:outputText value="Date Manufacturer:" />
+		        <h:panelGrid columns="3">
+		        	<p:calendar value="#{carListBean.dateFrom}" id="dateFrom" pattern="dd/MM/yyyy" maxdate="#{carListBean.maxDate}"/>
+			        <h:outputText value="to" />
+			        <p:calendar value="#{carListBean.dateTo}" id="dateTo" pattern="dd/MM/yyyy" maxdate="#{carListBean.maxDate}"/>
+		        </h:panelGrid>
+		        
+			</p:panelGrid>
+			<p:commandButton id='search' value='Search' actionListener="#{carListBean.search}" update="tableResult"/>
+		</p:panel>
+		
+		<p:panel header="Search Result" id="resultPanel">
+			<p:dataTable var="car" value="#{carListBean.carList}" id="tableResult">
+		        <p:column headerText="Owner">
+		            <h:outputText value="#{car.owner}" />
+		        </p:column>
+		
+		        <p:column headerText="Model">
+		            <h:outputText value="#{car.model}" />
+		        </p:column>
+		        
+		        <p:column headerText="Manufacturer">
+		            <h:outputText value="#{car.manufacturer}" />
+		        </p:column>
+		
+		        <p:column headerText="Description">
+		            <h:outputText value="#{car.description}" />
+		        </p:column>
+		        
+		        <p:column headerText="Color">
+		            <h:outputText value="#{car.color}" />
+		        </p:column>
+		        
+		        <p:column headerText="Date Manufacturer">
+		            <h:outputText value="#{car.dateManufactured}" >
+		            	<f:convertDateTime pattern="dd/MM/yyyy" timeZone="#{carListBean.timeZone}"/>
+		            </h:outputText>
+		        </p:column>
+		        
+		        <p:column headerText="Action">
+		            <p:commandButton id='edit' value='Edit' action="#{carListBean.edit}">
+		            	<f:setPropertyActionListener target="#{carListBean.carEdit}" value="#{car}" />
+		            </p:commandButton>
+		            <p:commandButton id="delete" value="Delete" onclick="deleteDlg.show();" >
+		            	<f:setPropertyActionListener target="#{carListBean.carEdit}" value="#{car}" />
+		            </p:commandButton>
+		        </p:column>
+		
+		    </p:dataTable>
+	    </p:panel>
+	    <br></br>
+		<p:commandButton id='back' value='Back' action="#{carListBean.back}"/>
 	</h:form>
 
 	<ui:debug hotkey="x" />

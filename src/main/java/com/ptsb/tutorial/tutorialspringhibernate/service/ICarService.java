@@ -2,6 +2,7 @@
 
 package com.ptsb.tutorial.tutorialspringhibernate.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.ptsb.tutorial.tutorialspringhibernate.domain.Car;
@@ -16,6 +17,8 @@ public interface ICarService {
 	List<Car> findAll();
 
 	void save(Car car);
+	
+	void delete(Car car);
 
-	List<Car> findByExample(Car car);
+	List<Car> findByExample(Car car,Date dateFrom,Date dateTo);
 }
