@@ -32,7 +32,8 @@
 
 	<context:annotation-config />
 
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
 
 	<bean id="transactionManager"
 		class="org.springframework.transaction.jta.JtaTransactionManager">
@@ -65,7 +66,5 @@
 			use the messageSource when resolving properties
 		</description>
 	</bean>
-	
-	
 
 </beans>

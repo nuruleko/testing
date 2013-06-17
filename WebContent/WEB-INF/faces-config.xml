@@ -1,37 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<faces-config
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-    version="2.1">
-    
-    <navigation-rule>
-	     <from-view-id>index.xhtml</from-view-id>
-	     <navigation-case>
-	       <from-outcome>carform</from-outcome>
-	          <to-view-id>CarForm.xhtml</to-view-id>
-	      </navigation-case>
-	      <navigation-case>
-	       <from-outcome>carlist</from-outcome>
-	          <to-view-id>CarListForm.xhtml</to-view-id>
-	      </navigation-case>
-    </navigation-rule>
-    
-    <navigation-rule>
-	        <from-view-id>*</from-view-id>
-	        <navigation-case>
-	            <from-outcome>back</from-outcome>
-	            <to-view-id>index.xhtml</to-view-id>
-	        </navigation-case>
-	 </navigation-rule>
-	 
-	 <navigation-rule>
-	        <from-view-id>CarForm.xhtml</from-view-id>
-	        <navigation-case>
-	            <from-outcome>backlist</from-outcome>
-	            <to-view-id>CarListForm.xhtml</to-view-id>
-	        </navigation-case>
-	 </navigation-rule>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
 
 </faces-config>

@@ -13,56 +13,8 @@
 
 <h:body>
 
-	<h:form id="formCar">
-		<p:growl id="growl" showDetail="true" sticky="true" />
-		<p:panel header="Car Form" id="panelCar" style="width:800px" >
-			<p:panelGrid columns="3" header="Car Info" id="panelGridCar" >
-				<h:outputLabel for='owner' value='Owner:' />
-			    <p:inputText id='owner' value='#{carBean.car.owner}' required="true"/>
-			    <p:message id="ownerMessage" for="owner" />
-			    
-				<h:outputLabel for='model' value='Model:' />
-			    <p:inputText id='model' value='#{carBean.car.model}' required="true"/>
-			    <p:message id="modelMessage" for="model" />
-			     
-			    <h:outputText value="Manufacturer: " />
-		        <p:selectOneMenu value="#{carBean.car.manufacturer}" id="manufacturer" required="true">
-		            <f:selectItems value="#{carBean.manufacturerList}" />
-		        </p:selectOneMenu>
-		        <p:message id="manufacturerMessage" for="manufacturer" />
-		        
-			    <h:outputLabel for='description' value='Description:' />
-			    <p:inputTextarea rows="6" cols="33" id="description" value='#{carBean.car.description}' required="true"/>
-			    <p:message id="descriptionMessage" for="description" />
-			    
-			    <h:outputText value="Color: " />
-		        <p:selectOneRadio id="color" value="#{carBean.car.color}" required="true">
-		            <f:selectItems value="#{carListBean.colorList}" />
-		        </p:selectOneRadio>
-		        <p:message id="colorMessage" for="color" />
-		        
-		        <h:outputText value="Date Manufacturer:" />
-		        <p:calendar value="#{carBean.car.dateManufactured}" id="dateManufactured" pattern="dd/MM/yyyy" maxdate="#{carBean.maxDate}" required="true"/>
-		        <p:message id="dateManufacturedMessage" for="dateManufactured" />
-		        
-			</p:panelGrid>
-		</p:panel>
-		<p:panel header="Wheels" id="panelWheels" style="width:800px">
-			<p:dataTable var="wheel" value="#{carBean.car.wheels}" id="tableWheels">
-		        <p:column headerText="Sequence">
-		            <h:outputText value="#{wheel.sequence}" />
-		        </p:column>
-		
-		        <p:column headerText="Manufacturer">
-		            <h:outputText value="#{wheel.manufacturer}" />
-		        </p:column>
-		
-		    </p:dataTable>
-	    </p:panel>
-		<br></br>
-		<p:button id='back' value='Back' outcome="#{carBean.outcome}" />
-		<p:spacer width="10" height="8" />
-		<p:commandButton id='submit' value='Submit' actionListener="#{carBean.saveForm}" update="panelGridCar,growl"/>
+	<h:form id="mainForm">
+
 	</h:form>
 
 	<ui:debug hotkey="x" />
