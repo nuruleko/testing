@@ -4,13 +4,12 @@ package com.ptsb.tutorial.tutorialspringhibernate.service.impl;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ptsb.tutorial.tutorialspringhibernate.domain.Car;
+import com.ptsb.tutorial.tutorialspringhibernate.repository.CarRepository;
 import com.ptsb.tutorial.tutorialspringhibernate.service.ICarService;
 
 /**
@@ -21,7 +20,7 @@ import com.ptsb.tutorial.tutorialspringhibernate.service.ICarService;
 public class CarService implements ICarService {
 
 	@Autowired
-	private SessionFactory sessionFactory;
+	private CarRepository carRepository;
 
 	@Override
 	public Car findById(Long id) {
@@ -37,16 +36,13 @@ public class CarService implements ICarService {
 
 	@Override
 	public void save(Car car) {
+		carRepository.save(car);
 	}
 
 	@Override
 	public List<Car> findByExample(Car car) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	private Session getSession() {
-		return sessionFactory.getCurrentSession();
 	}
 
 }
