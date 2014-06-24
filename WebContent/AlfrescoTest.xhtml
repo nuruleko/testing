@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Alfresco Test</title>
+</h:head>
+
+<h:body>
+	
+	<h:form id="mainForm">
+
+		<p:fileUpload auto="true" mode="advanced" 
+			fileUploadListener="#{alfrescoTestForm.handleFileUpload}"
+			allowTypes="/(\.|\/)(jpe?g|png|txt|doc|pdf|dwf)$/"
+			sizeLimit="1000000" update="@form" process="@this" />
+			
+<!-- 			<p:commandButton value="Save" action="#{mb.save}" update="@form"/> -->
+	</h:form>
+
+	<ui:debug hotkey="x" />
+
+</h:body>
+</html>
