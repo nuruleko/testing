@@ -51,7 +51,7 @@ public class DmsService implements IDmsService {
 		return entityManager;
 	}
 
-	@PersistenceContext(unitName = "etanahPU")
+	@PersistenceContext(unitName = "etanahTutorialSpringHibernatePU")
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
