@@ -8,6 +8,24 @@
 
 		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Car</class>
 		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Wheel</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.SenaraiAhliKumpulan</class>
+
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Fakulti</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Jabatan</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.KalendarAkademik</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Pengguna</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.RekodUrusan</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.SenaraiKumpulan</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Semester</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.RunningNumber</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Subjek</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.Tugasan</class>
+		<class>com.ptsb.tutorial.tutorialspringhibernate.domain.SubjekTerlibat</class>
+
+
+		<!-- <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
+
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 
 	</persistence-unit>
 </persistence>

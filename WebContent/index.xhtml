@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html >
+
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.springframework.org/security/tags"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -12,8 +13,34 @@
 </h:head>
 
 <h:body>
-
+	<ui:param name="mb" value="#{indexForm}" />
 	<h:form id="mainForm">
+	 <p:growl id="growl" showDetail="true" sticky="true" /> 
+		<p:commandButton value="Login" action="#{mb.onClick}" update="@form" />
+		<br />
+		<br />
+		<br />
+		<br />
+		<p:panelGrid columns="3" rendered="#{mb.click}">
+			<h:outputText value="Nama" />
+			<h:outputText value=":" style="text-align:center" />
+			<p:inputText value="#{mb.pengguna}" />
+
+			<h:outputText value="Kata Laluan" />
+			<h:outputText value=":" style="text-align:center" />
+			<p:inputText value="#{mb.password}" required="true"
+				requiredMessage="Sila masukkan kata laluan" />
+
+			<h:outputText />
+			<h:outputText />
+			<p:outputPanel>
+				<div style="text-align: right">
+					<p:commandButton value="Login" action="#{mb.onLogIn}" update="@form growl"/>
+					<p:commandButton value="Cancel" action="#{mb.onClick}" update="@form" resetValues="true"/>
+				</div>
+			</p:outputPanel>
+
+		</p:panelGrid>
 
 	</h:form>
 
